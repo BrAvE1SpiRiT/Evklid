@@ -1,0 +1,160 @@
+.header {
+	position: sticky;
+	top: 0;
+	background-color: var(--page-bg);
+	border-radius: 0px 0px 32px 32px;
+	box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.10);
+	z-index: 4;
+	padding: 14px 0;
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__nav {
+		display: flex;
+		gap: 60px;
+	}
+
+	&__search {
+		height: 24px;
+		outline-color: var(--page-bg);
+		transition: outline-color 0.3s ease-in-out 0s;
+
+		&:hover .search rect,
+		&:active .search rect {
+			fill: var(--accent);
+		}
+
+		&:hover .search path,
+		&:active .search path {
+			stroke: var(--accent);
+		}
+
+		&:focus-visible {
+			outline-offset: 4px;
+			outline: 2px solid var(--accent);
+		}
+	}
+
+
+}
+
+.search rect {
+	transition: all .2s ease;
+}
+
+.search path {
+	transition: all .2s ease;
+}
+
+.nav {
+	&__link {
+		position: relative;
+		color: var(--text-color);
+		text-decoration: none;
+		font-size: 18px;
+		font-weight: 600;
+		outline-color: var(--page-bg);
+		transition: outline-color 0.3s ease-in-out;
+
+		&::after {
+			content: "";
+			bottom: -5px;
+			left: 50%;
+			width: 0;
+			height: 2px;
+			background-color: var(--accent);
+			transform: translateX(-50%);
+			transition: width .3s ease;
+			position: absolute;
+		}
+
+		&:hover::after {
+			width: 100%;
+		}
+
+		&:focus-visible {
+			outline-offset: 4px;
+			outline: 2px solid var(--accent);
+
+		}
+
+		&:active {
+			color: var(--active-color);
+		}
+
+		&:active::after {
+			background-color: var(--active-color);
+		}
+	}
+}
+
+@include xl {
+	.header {
+		padding: 26px 0;
+
+		&__nav {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+	}
+
+	.header-logo {
+		&__img {
+			height: 48px;
+		}
+	}
+
+	.nav {
+		position: absolute;
+		left: -100%;
+		top: 0;
+		width: 420px;
+		height: 100vh;
+		background-color: var(--page-bg);
+		transition: left 0.5s ease 0s;
+		padding: 170px 50px;
+		z-index: 3;
+		border-radius: 0px 0px 32px 32px;
+		box-shadow: 0px 5px 40px 0px rgba(0, 0, 0, 0.1);
+	}
+}
+
+@include lg {
+	.header {
+		padding: 10px 0;
+	}
+
+	.nav {
+		padding: 152px 50px;
+	}
+}
+
+@include sm {
+	.header {
+		padding: 17px 0;
+
+		&__nav {
+			gap: 32px;
+		}
+	}
+
+	.nav {
+		padding: 78px 15px;
+	}
+
+	.header-logo {
+		&__img {
+			height: 35px;
+		}
+	}
+}
+
+@media (max-width: 420px) {
+	.nav {
+		width: 100%;
+	}
+}

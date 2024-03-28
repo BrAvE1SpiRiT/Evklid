@@ -1,0 +1,133 @@
+.accordion {
+	margin-top: 117px;
+	margin-bottom: 83px;
+	border-bottom: 1px solid var(--grey-color);
+
+	&__title {
+		position: relative;
+		
+		padding: 40px 0;
+		cursor: pointer;
+		border-top: 1px solid var(--grey-color);
+
+		&:hover .accordion__btn,
+		&:focus-visible .accordion__btn{
+			color: var(--accent);
+		}
+
+		&:hover .plus__path {
+			fill: var(--page-bg);
+		}
+
+		&:hover .plus__ellipse {
+			fill: var(--accent);
+		}
+
+	}
+	&__btn{
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 32px;
+		text-align: left;
+	}
+
+	&__plus {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		transform: translate(0, -50%);
+		height: 50px;
+	}
+
+	&__text {
+		color: var(--text-color);
+		max-width: 1000px;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 32px;
+	}
+
+	&__paragraf {
+		margin-top: 32px;
+		margin-bottom: 40px;
+	}
+}
+.ui-state-focus .accordion__btn{
+	color: var(--accent);
+}
+.ui-accordion-header-active .plus__svg {
+	transform: rotate(45deg);
+}
+
+.ui-accordion-header-active::after {
+	display: none;
+}
+
+.plus {
+	&__svg {
+		transition: transform .2s ease;
+	}
+
+	&__ellipse {
+		transition: all .2s ease;
+	}
+
+	&__path {
+		transition: all .1s ease;
+	}
+}
+
+.accordion-container {
+	margin-top: 32px;
+}
+
+@media (max-width: 1600px) {
+	.accordion {
+		&__title {
+			font-size: 21px;
+		}
+	}
+}
+
+@include xl {
+	.accordion {
+		margin-top: 80px;
+		&__title {
+			font-size: 20px;
+			padding-right: 55px;
+		}
+	}
+}
+@include lg {
+	 .accordion{
+		margin-top: 49px;
+	 }
+}
+@include sm {
+	.accordion {
+		margin-top: 60px;
+		&__title {
+			font-size: 14px;
+			font-weight: 500;
+			line-height: 24px;
+			padding: 30px 32px 30px 0;
+		}
+
+		&__plus {
+			height: 30px;
+		}
+		&__text{
+			font-size: 14px;
+			line-height: 28px;
+		}
+		&__paragraf{
+			margin-top: 10px;
+		}
+
+	}
+
+	.plus__svg {
+		height: 30px;
+		width: 30px;
+	}
+}

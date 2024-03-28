@@ -1,0 +1,120 @@
+.header {
+	&__form {
+		display: none;
+		position: absolute;
+		background-color: var(--page-bg);
+		top: -34px;
+		right: 0px;
+		transition: all 0.3s ease;
+		z-index: 7;
+	}
+}
+
+.header-form {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 13px 16px 32px;
+	box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.12);
+	border-radius: 24px;
+
+	&__input {
+		padding-bottom: 5px;
+		border-bottom: 1px solid var(--grey-color);
+		width: 412px;
+		margin-right: 14px;
+		font-weight: 500;
+		line-height: 22px;
+		color: var(--grey-color);
+	}
+	&__inp{
+		width: 100%;
+	}
+
+	&__search-btn {
+		margin-right: 20px;
+		height: 24px;
+		width: 24px;
+		outline-color: var(--page-bg);
+		transition: outline-color .2s ease-in;
+
+
+		&:focus-visible {
+			outline: 2px solid var(--accent);
+			outline-offset: 5px;
+		}
+	}
+
+	&__closed {
+		cursor: pointer;
+		height: 24px;
+		width: 24px;
+		outline-color: var(--page-bg);
+		transition: outline-color .2s ease-in;
+
+		&:hover .closed rect {
+			fill: var(--accent);
+		}
+
+		&:hover .closed circle {
+			stroke: var(--accent);
+		}
+
+		&:active .closed rect {
+			fill: var(--text-color);
+		}
+
+		&:active .closed circle {
+			stroke: var(--text-color);
+		}
+
+		&:focus-visible {
+			outline: 2px solid var(--accent);
+			outline-offset: 5px;
+		}
+	}
+}
+
+.search-block {
+	position: relative;
+}
+
+.form-active {
+	top: -16px;
+}
+
+@media (max-width: 670px) {
+	.search-block {
+		position: static;
+	}
+
+	.header {
+		&__form {
+			top: -78px;
+			left: 0;
+			border-radius: 0px 0px 24px 24px;
+			z-index: 6;
+		}
+	}
+
+	.form-active {
+		top: 0px;
+	}
+
+	.header-form {
+		padding: 20px 50px;
+		box-shadow: none;
+
+		&__input {
+			width: 85%;
+			font-size: 16px;
+			line-height: 20px;
+		}
+	}
+}
+
+@include sm {
+	.header-form {
+		padding: 20px 15px;
+	}
+}

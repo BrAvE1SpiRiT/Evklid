@@ -1,0 +1,83 @@
+.mobile-nav-btn {
+	display: none;
+	position: relative;
+	width: 30px;
+	height: 23px;
+
+	outline-color: var(--page-bg);
+	transition: outline-color .2s ease-in-out 0s;
+
+	z-index: 6;
+
+	&:hover .nav-icon,
+	&:hover::before,
+	&:hover::after {
+		background-color: var(--active-color);
+	}
+
+	&:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 5px;
+	}
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		transition: all .1s ease-in;
+		background-color: var(--text-color);
+		width: 100%;
+		height: 3px;
+		left: 0;
+	}
+
+	&::after {
+		bottom: 0;
+	}
+
+	&::before {
+		top: 0;
+	}
+}
+
+.nav-icon,
+.nav-icon-btn::before,
+.nav-icon-btn::after {
+	position: absolute;
+	right: 0;
+
+	width: 100%;
+	height: 3px;
+
+	background-color: var(--text-color);
+	transition: width .2s ease-in, background-color .1s ease-in;
+}
+
+.nav-icon {
+	top: 45%;
+}
+
+.active-icon-burger {
+	width: 0px;
+}
+
+.mobile-nav-btn.burger-active::before {
+	width: 30px;
+	top: 10px;
+	right: 4px;
+	transform: rotate(45deg);
+}
+
+.mobile-nav-btn.burger-active::after {
+	width: 30px;
+	top: 10px;
+	right: 3px;
+	transform: rotate(-45deg);
+}
+
+@include xl {
+	.mobile-nav-btn {
+		display: block;
+	}
+
+}

@@ -1,0 +1,17 @@
+.container {
+	padding: 0 var(--container-padding);
+	max-width: var(--container-width);
+	margin: 0 auto;
+}
+
+@include xl {
+	.container {
+		padding: 0 50px;
+	}
+}
+
+@include sm {
+	.container {
+		padding: 0 15px;
+	}
+}
