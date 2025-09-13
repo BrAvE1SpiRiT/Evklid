@@ -1,6 +1,6 @@
 # ❇️**Евклид Проектные системы**
 
-![Evklid Preview](img/evklid-preview.png)
+![Evklid Preview](./src/img/evklid-preview.png)
 
 Проект представляет услуги помощи на всех этапах строительства разнотипных проектов.
 
